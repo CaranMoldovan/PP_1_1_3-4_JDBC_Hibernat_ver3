@@ -13,10 +13,5 @@ public class Main {
         userService.saveUser("Злата", "Марковна", (byte) 71);
         userService.saveUser("Елена","Подпивко",(byte) 34);
 
-        userService.getAllUsers();
-
-        userService.cleanUsersTable();
-
-        userService.dropUsersTable();
     }
 }
