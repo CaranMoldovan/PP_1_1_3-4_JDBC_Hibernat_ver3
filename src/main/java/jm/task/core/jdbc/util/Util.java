@@ -15,7 +15,7 @@ public class Util {
     private static final String URL = "jdbc:mysql://localhost:3306/my_db";
     private static final String USER = "root";
     private static final String PASSWORD = "Andrei2001.";
-    private static final String DRIVER_CLASS ="com.mysql.cj.jdbc.Driver";
+    private static final String DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
     public static Connection getConnection() {
@@ -25,6 +25,7 @@ public class Util {
             throw new RuntimeException("Failed to connect to the database", e);
         }
     }
+
     private static SessionFactory buildSessionFactory() {
         try {
             Configuration configuration = new Configuration();
@@ -33,8 +34,8 @@ public class Util {
             connectionProperties.put("hibernate.connection.url", URL);
             connectionProperties.put("hibernate.connection.username", USER);
             connectionProperties.put("hibernate.connection.password", PASSWORD);
-            connectionProperties.setProperty("hibernate.connection.driver_class",DRIVER_CLASS);
-
+            connectionProperties.setProperty("hibernate.connection.driver_class", DRIVER_CLASS);
+            connectionProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
             configuration.setProperties(connectionProperties);
             configuration.addAnnotatedClass(User.class);
 
